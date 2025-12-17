@@ -18,6 +18,10 @@ vim.api.nvim_create_user_command("PassEncrypt", function()
             vim.log.levels.ERROR)
         return
     end
+    if password:match("[^\32-\126]") ~= nil then
+        vim.notify("The password may only contain printable ASCII characters!", vim.log.levels.ERROR)
+        return
+    end
 
     vim.api.nvim_buf_set_lines(0, -2, -1, false, {})
     vim.cmd("write")
@@ -64,6 +68,10 @@ vim.api.nvim_create_user_command("PassDecrypt", function()
 
     local password = crypt.get_password()
     if password == nil then
+        return
+    end
+    if password:match("[^\32-\126]") ~= nil then
+        vim.notify("The password may only contain printable ASCII characters!", vim.log.levels.ERROR)
         return
     end
 
