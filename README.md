@@ -33,7 +33,7 @@ Install Neovim 0.10.x, Treesitter CLI, Aspell, xsel (optional), LSP servers (opt
 ##### Linux (MOOS):
 
 ```bash
-sudo pacman -S neovim tree-sitter-cli aspell-en xsel vscode-html-languageserver vscode-json-languageserver vscode-css-languageserver typescript-language-server yaml-language-server clang lua-language-server jedi-language-server bash-language-server rust-analyzer python-black mypy flake8 usort texlab $(pacman -Sgq 'texlive') tinyxxd
+sudo pacman -S neovim tree-sitter-cli aspell aspell-en xsel vscode-html-languageserver vscode-json-languageserver vscode-css-languageserver typescript-language-server yaml-language-server clang lua-language-server jedi-language-server bash-language-server rust-analyzer python-black mypy flake8 usort texlab $(pacman -Sgq 'texlive') tinyxxd
 yay -S vim-language-server csharp-ls openscad-lsp verible-bin
 ```
 
@@ -46,7 +46,7 @@ git clone https://github.com/cshmookler/neovim_conf ~/.config/nvim
 #### 3.&nbsp; Generate the dictionary file.
 
 ```bash
-aspell dump master > /etc/nvim/dict
+aspell --lang=en dump master | aspell --lang=en expand > ~/.local/share/nvim/dict
 ```
 
 #### 4.&nbsp; Start Neovim.

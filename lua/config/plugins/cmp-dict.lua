@@ -2,7 +2,7 @@ return {
     "uga-rosa/cmp-dictionary",
     dependencies = { "hrsh7th/nvim-cmp" },
     opts = {
-        paths = { "/etc/nvim/dict" },
+        paths = { "~/.local/share/nvim/dict" },
         first_case_insensitive = true,
     },
     config = function(plugin, opts)
